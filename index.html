@@ -37,7 +37,7 @@ T3.style.display = "none";
 
 
 <script>
-    $(document).ready(function () {
+ $(document).ready(function () {
   $("#file_input").on("change", function (e) {    
     readFile(this.files[0], function (e) {
       const text = e.target.result;
@@ -127,16 +127,53 @@ T3.style.display = "none";
         var select_button = document.getElementById("userId")
         var user = select_button.options[select_button.selectedIndex].value;
         console.log(user)
-        if (user==="user1"){
-          var image_button = document.getElementById("btnImg");
-        image_button.style.display = "block";
-        }
-        else { var image_button = document.getElementById("btnVid");
-        image_button.style.display = "block";}
+
        
                 var chart = this.series.chart;
         var points = chart.getSelectedPoints();
         //console.log(points[0].yCategory)
+
+         
+        if (user==="user1"){
+                  if (points[0].yCategory==="Balenciaga International"){
+                    var image_button1 = document.getElementById("btnImg1");
+                    image_button1.style.display = "block";                    
+                    var image_button2 = document.getElementById("btnImg2");
+                    image_button2.style.display = "none";
+                    var image_button3 = document.getElementById("imageId2");
+                    image_button3.style.display = "none";
+                    
+                  }
+                  else{
+                    var image_button2 = document.getElementById("btnImg2");
+                    image_button2.style.display = "block";
+                    var image_button1 = document.getElementById("btnImg1");
+                    image_button1.style.display = "none";    
+                    var image_button3 = document.getElementById("imageId1");
+                    image_button3.style.display = "none";
+                  }
+          
+        }
+        else { 
+              if (points[0].yCategory==="Balenciaga International"){
+                    var image_button1 = document.getElementById("btnVid1");
+                    image_button1.style.display = "block";                    
+                    var image_button2 = document.getElementById("btnVid2");
+                    image_button2.style.display = "none";
+                    var image_button3 = document.getElementById("videoId2");
+                    image_button3.style.display = "none";
+                    
+                  }
+                  else{
+                    var image_button2 = document.getElementById("btnVid2");
+                    image_button2.style.display = "block";
+                    var image_button1 = document.getElementById("btnVid1");
+                    image_button1.style.display = "none";    
+                    var image_button3 = document.getElementById("videoId1");
+                    image_button3.style.display = "none";
+                  }
+          
+          }
 
         var data2 = [
           {
@@ -553,10 +590,7 @@ function NewChart() {
         });
       }
 
-
-
 </script>
-
 
 <div id="GanttDiv" style="display:none" class="main-container"  >
     <div id="container"></div>
@@ -570,21 +604,39 @@ function NewChart() {
             Remove selected
       </button>
           
-          <button id="btnImg" value="GO" style="display: none;" onclick="showImage('imageId')">
+          <button id="btnImg1" value="GO" style="display: none;" onclick="showImage1('imageId1')">
+            Show image
+        </button>
+      
+      <button id="btnImg2" value="GO" style="display: none;" onclick="showImage2('imageId2')">
             Show image
         </button>
       
  <script> 
-function showImage(element)
+   
+function showImage1(element)
+{
+var T1 = document.getElementById(element);
+T1.style.display = "block";
+}
+   
+function showImage2(element)
 {
 var T1 = document.getElementById(element);
 T1.style.display = "block";
 }
 </script>   
-<div id=imageId style="display: none;">  <iframe src="https://balenciaga.dam.kering.com/m/7c471d25d8d1e46d/Large-694491WA72O1010_F.jpg?v=1"
+<div id=imageId1 style="display: none;">  <iframe src="https://balenciaga.dam.kering.com/m/7c471d25d8d1e46d/Large-694491WA72O1010_F.jpg?v=1"
                           width="560" height="215" frameborder="0"></iframe></div>
       
-      <button id="btnVid" value="GO" style="display: none;" onclick="showVideo('videoId')">
+<div id=imageId2 style="display: none;">  <iframe src="   https://media.bergdorfgoodman.com/f_auto,q_auto/01/bg_4228744_100106_z"
+                          width="560" height="215" frameborder="0"></iframe></div>
+      
+      <button id="btnVid1" value="GO" style="display: none;" onclick="showVideo('videoId1')">
+            Show video
+        </button>
+      
+           <button id="btnVid2" value="GO" style="display: none;" onclick="showVideo('videoId2')">
             Show video
         </button>
  <script> 
@@ -594,7 +646,10 @@ var T1 = document.getElementById(element);
 T1.style.display = "block";
 }
 </script>   
-<div id=videoId style="display: none;">  <iframe src="https://www.youtube.com/embed/H5zSHFBjohE"
+<div id=videoId1 style="display: none;">  <iframe src="https://www.youtube.com/embed/H5zSHFBjohE"
+                          width="560" height="315" frameborder="0" allowfullscreen></iframe></div>
+      
+<div id=videoId2 style="display: none;">  <iframe src="https://www.youtube.com/embed/ndlkzvFoMi0"
                           width="560" height="315" frameborder="0" allowfullscreen></iframe></div>
  
       
